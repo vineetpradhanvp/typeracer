@@ -1,0 +1,51 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  width: min(1200px, 100%);
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.card {
+  background-color: white;
+  padding: 0.7rem 1rem;
+  filter: drop-shadow(0px 0px 1px rgb(39, 39, 39));
+  border-radius: 0.3rem;
+}
+
+.race {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.race h3,
+.race p {
+  margin: 0;
+}
+.race h3 {
+  font-weight: 600;
+}
+.race p {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.race > button {
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  font-weight: 600;
+}
+
+.leaderboard,
+.contests {
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.leaderboard {
+  grid-column-start: 1;
+}
+.contests {
+  grid-column-start: 3;
+}
