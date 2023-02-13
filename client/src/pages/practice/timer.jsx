@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 import styles from "./index.module.css";
 
@@ -35,7 +35,7 @@ export default function Timer(props) {
   }, [props.correct]);
 
   return (
-    <div className={styles.timer}>
+    <div className={`${styles.timer} card`}>
       <div
         className={styles.time}
         style={{
@@ -49,7 +49,7 @@ export default function Timer(props) {
         {Math.floor(props.time / 60)}:
         {props.time % 60 < 10 ? `0${props.time % 60}` : props.time % 60}
       </div>
-      <svg className={styles.svg} height="100%" width="100%">
+      <svg className={styles.svg} height="90%" width="90%">
         <circle
           cx="50%"
           cy="50%"

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Details from "../../components/details";
 import DisplayText from "../../components/displayText";
-import Timer from "../../components/timer";
+import Timer from "./timer";
 
 import styles from "./index.module.css";
 
@@ -63,18 +63,16 @@ export default function Practice() {
         </button>
       </div>
       <div className={styles.column}>
-        <div className={`card ${styles.timer}`}>
-          {textArr.length ? (
-            <Timer
-              correct={correct + 1}
-              total={textArr?.length}
-              finished={finished}
-              index={index}
-              time={time}
-              setTime={setTime}
-            />
-          ) : null}
-        </div>
+        {textArr.length ? (
+          <Timer
+            correct={correct + 1}
+            total={textArr?.length}
+            finished={finished}
+            index={index}
+            time={time}
+            setTime={setTime}
+          />
+        ) : null}
       </div>
     </main>
   );
