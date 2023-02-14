@@ -16,7 +16,7 @@ button {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition-duration: 0.2s;
-  transition-duration: color, background-color, border;
+  transition-property: color, background-color, border;
   font-size: 0.9rem;
   font-weight: 500;
   border: 2px solid;

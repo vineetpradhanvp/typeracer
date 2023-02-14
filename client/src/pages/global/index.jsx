@@ -3,8 +3,8 @@ import socket from "../../socket";
 
 import Details from "../../components/details";
 import DisplayText from "../../components/displayText";
-import Timer from "./timer";
-import Leaderboard from "./leaderBoard";
+import Timer from "../../components/timer";
+import Leaderboard from "../../components/leaderBoard";
 
 import styles from "./index.module.css";
 
@@ -26,13 +26,13 @@ export default function Global(props) {
     const func = async () => {
       const res = await fetch("/paragraphs.json");
       const data = await res.json();
-      const p = data[(Math.floor(Math.random()) + 1) * (roomId % 100)];
+      const p = data[roomId % 200];
       setTextArr(p.split(""));
     };
     roomId && func();
   }, [roomId]);
   useEffect(() => {
-    if (textArr.length && correct + 1 === textArr.length) {
+    if (finished) {
       socket.emit("finished", { roomId, time: new Date().getTime() });
       clearInterval(intervalRef.current);
       setList((prev) => [
@@ -57,7 +57,6 @@ export default function Global(props) {
         () => setCountdown((prev) => prev - 1),
         1000
       );
-      console.log(players);
     });
     socket.on("set-progress", (obj) => {
       setPlayers((prev) =>
@@ -82,6 +81,7 @@ export default function Global(props) {
     });
 
     return () => {
+      socket.emit("leave-global");
       socket.removeAllListeners("global-added");
       socket.removeAllListeners("global-padded");
       socket.removeAllListeners("global-premoved");
@@ -139,6 +139,7 @@ export default function Global(props) {
           total={textArr?.length}
           players={players}
           socketId={props.socketId}
+          finished={finished}
         />
       </div>
     </main>

@@ -8,10 +8,9 @@ export default function Timer(props) {
       <div
         className={styles.time}
         style={{
-          backgroundColor:
-            props.correct === props.total
-              ? "rgb(84 255 84)"
-              : "rgba(0, 0, 0, 0.11)",
+          backgroundColor: props.finished
+            ? "rgb(84 255 84)"
+            : "rgba(0, 0, 0, 0.11)",
         }}
       >
         {Math.floor(props.time / 60)}:
@@ -27,7 +26,7 @@ export default function Timer(props) {
                   className={styles.progressBar}
                   style={{
                     border: `2px solid ${
-                      props.correct === props.total ? "rgb(84 255 84)" : "black"
+                      props.finished ? "rgb(84 255 84)" : "black"
                     }`,
                   }}
                 >
@@ -35,10 +34,9 @@ export default function Timer(props) {
                     className={styles.track}
                     style={{
                       width: `${(100 * props.correct) / props.total}%`,
-                      backgroundColor:
-                        props.correct === props.total
-                          ? "rgb(84 255 84)"
-                          : "black",
+                      backgroundColor: props.finished
+                        ? "rgb(84 255 84)"
+                        : "black",
                     }}
                   ></div>
                 </div>

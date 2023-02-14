@@ -6,7 +6,9 @@ export default function DisplayText(props) {
   useEffect(() => {
     const el = (e) => {
       if (e.keyCode === 8 && props.index > 0) {
-        props.correct === props.index - 1 || props.setIndex((prev) => prev - 1);
+        props.setIndex((prev) => prev - 1);
+        props.correct === props.index - 1 &&
+          props.setCorrect((prev) => prev - 1);
       }
       if (
         e.key.charCodeAt() <= 126 &&

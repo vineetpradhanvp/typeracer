@@ -13,12 +13,6 @@
 }
 .restartBtn {
   align-self: flex-end;
-  margin-top: 0.8rem;
-}
-.restartBtn:hover {
-  background-color: black;
-  color: white;
-  border: 2px solid black;
 }
 
 .timer {

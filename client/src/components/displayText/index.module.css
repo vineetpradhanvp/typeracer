@@ -1,6 +1,7 @@
 .text {
   border-bottom: 2px solid;
   padding-bottom: 0.8rem;
+  user-select: none;
 }
 .text > span {
   font-weight: 500;
